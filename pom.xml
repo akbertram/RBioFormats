@@ -52,7 +52,7 @@
     <dependency>
       <groupId>org.renjin.cran</groupId>
       <artifactId>rJava</artifactId>
-      <version>0.9-8-renjin-6</version>
+      <version>0.9-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.renjin</groupId>
@@ -77,7 +77,7 @@
   </dependencies>
 
   <build>
-    <sourceDirectory>${basedir}/java</sourceDirectory>
+    <sourceDirectory>${basedir}/renjin</sourceDirectory>
 
     <plugins>
       <plugin>
