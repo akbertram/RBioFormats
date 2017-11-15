@@ -65,3 +65,9 @@ bplapply (files, function(f) {
   ...
 })
 ```
+
+# Build with Renjin
+
+Run `mvn install` to build and test with Renjin
+
+Run `renjin:repl` to open a Renjin REPL with the package on the classpath.
