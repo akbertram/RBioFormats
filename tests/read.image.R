@@ -1,3 +1,4 @@
+library(methods)
 library("RBioFormats")
 
 parameters = list (
