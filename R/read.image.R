@@ -183,24 +183,14 @@ read.image <- function(file, filter.metadata = FALSE, proprietary.metadata = TRU
   .hashtableToList( .jcall(reader, "Ljava/util/Hashtable;", "getSeriesMetadata") )
 }
 
-
-.renjin.list <- function(x) {
-    it <- x$iterator()
-    result <- list()
-    while(it$hasNext()) {
-        result[[length(result) + 1]] <- it$`next`()
-    }
-    result
-}
-
 .hashtableToList = function (hashtable) {
   entries = .jcall(hashtable, "Ljava/util/Set;", "entrySet")
   setNames(
-    lapply(.renjin.list(entries), function(e) {
+    lapply(entries, function(e) {
       val = .jsimplify(.jcall(e, "Ljava/lang/Object;", "getValue", use.true.class=TRUE))
       if ( inherits(val, "jobjRef") ) .jcall(val, "S", "toString") else val
     }),
-    sapply(.renjin.list(entries), function(e) .jcall(e, "Ljava/lang/Object;", "getKey", use.true.class=TRUE))
+    sapply(entries, function(e) .jcall(e, "Ljava/lang/Object;", "getKey", use.true.class=TRUE))
   )
 }
 
